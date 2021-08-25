@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>What do you want?</title>
+</head>
+<body>
+    <br>
+    <h1>What do you want?</h1>
+    <form action="{{ url_for('add_entry')}}" method = post>
+        <p>Name <input type="text" name="name" maxlength="10">&emsp;*Type in your name.</p>
+        <p>Want <input type="text" want="want" maxlength="10">&emsp;*Type in waht you want.</p>
+        <p><input type="submit" value='send'></p>
+    </form>
+    <br>
+    <p>[送信履歴]</p>
+    <ul class="entries">
+        {% for entry in entries %}
+            <li>Name&ensp;:&ensp;{{entry.name}} / Want&ensp;:&ensp;{{entry.want}}</li>
+        {% endfor %}
+    </ul>   
+</body>
+</html>
